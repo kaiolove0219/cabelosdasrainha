@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit Crescimento e Fortalecimento | Cabelos de Rainha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #ffffff;
+      --surface: #fcfaf7;
+      --text: #1f1d1b;
+      --muted: #69635d;
+      --line: #ebe2d8;
+      --gold: #c8a252;
+      --gold-deep: #a17830;
+      --berry: #aa005e;
+      --berry-deep: #7f0048;
+      --green: #2daa3f;
+      --navy: #20365a;
+      --shadow: 0 24px 60px rgba(48, 31, 18, 0.12);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --page-width: min(1720px, calc(100% - 40px));
+      --section-width: min(1680px, calc(100% - 64px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      padding: 18px 28px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(214, 203, 191, 0.48);
+      box-shadow: 0 12px 30px rgba(40, 29, 20, 0.05);
+    }
+
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #252221;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .icon-button:hover {
+      background: #f7f2ed;
+      transform: translateY(-1px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 150px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--gold);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.86;
+      font-family: "Cormorant Garamond", serif;
+      color: #2e241c;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-copy small {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .brand-copy strong {
+      font-size: 2.1rem;
+      font-weight: 700;
+    }
+
+    .topbar-urgency {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(32, 54, 90, 0.98) 0%, rgba(127, 0, 72, 0.96) 100%);
+      color: #fff8f2;
+      box-shadow: 0 18px 36px rgba(50, 30, 20, 0.16);
+    }
+
+    .urgency-countdown,
+    .urgency-live {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .urgency-countdown {
+      padding-right: 18px;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .urgency-tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 248, 242, 0.74);
+    }
+
+    .urgency-time {
+      min-width: 4.3ch;
+      font-size: 1.5rem;
+      line-height: 1;
+      font-weight: 800;
+      color: #ffe2a5;
+    }
+
+    .urgency-live {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .urgency-live strong {
+      color: #ffe2a5;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #77ea8c;
+      box-shadow: 0 0 0 0 rgba(119, 234, 140, 0.7);
+      animation: livePulse 1.8s ease-out infinite;
+      flex: 0 0 auto;
+    }
+
+    @keyframes livePulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(119, 234, 140, 0.72);
+      }
+
+      70% {
+        box-shadow: 0 0 0 12px rgba(119, 234, 140, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(119, 234, 140, 0);
+      }
+    }
+
+    main {
+      padding-top: 24px;
+    }
+
+    .product-shell {
+      display: grid;
+      grid-template-columns: minmax(620px, 1.08fr) minmax(450px, 0.92fr);
+      gap: 42px;
+      width: var(--page-width);
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .product-media {
+      position: sticky;
+      top: 112px;
+    }
+
+    .gallery-panel {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 18% 16%, #ffffff 0, #ffffff 28%, #fbf7f2 58%, #f2e9df 100%);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 760px;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .thumb {
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 24px rgba(71, 46, 24, 0.09);
+    }
+
+    .thumb img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .thumb:hover,
+    .thumb.active {
+      border-color: var(--gold-deep);
+      transform: translateY(-2px);
+    }
+
+    .gallery-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      padding: 20px 8px 8px;
+    }
+
+    .gallery-stage img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 40px rgba(79, 43, 34, 0.13));
+    }
+
+    .product-copy {
+      padding: 12px 0 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #6a5540;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .product-copy h1,
+    .section-heading h2,
+    .tech-copy h2,
+    .founder-copy h2,
+    .reviews h2,
+    .intro-heading {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: #221914;
+    }
+
+    .product-copy h1 {
+      font-size: clamp(3.3rem, 6vw, 5.6rem);
+      max-width: 11ch;
+    }
+
+    .lede {
+      max-width: 64ch;
+      margin: 22px 0 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .rating-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      color: #4b433d;
+      font-weight: 600;
+    }
+
+    .stars {
+      display: inline-flex;
+      gap: 2px;
+      color: #f5be3b;
+      letter-spacing: 0.08em;
+    }
+
+    .rating-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c9b9a9;
+    }
+
+    .price-card {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid #ecdccf;
+      background: linear-gradient(180deg, #fffaf5 0%, #fff 100%);
+      box-shadow: 0 18px 34px rgba(80, 50, 27, 0.08);
+    }
+
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 14px;
+    }
+
+    .old-price {
+      color: #9a8a7d;
+      font-size: 1.2rem;
+      text-decoration: line-through;
+    }
+
+    .current-price {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 0.9;
+      font-weight: 800;
+      color: var(--berry);
+    }
+
+    .discount-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(45, 170, 63, 0.12);
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .price-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: #5a5149;
+      font-size: 0.95rem;
+    }
+
+    .kit-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+      color: #39312d;
+      font-size: 1rem;
+    }
+
+    .kit-list li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .kit-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      transform: translateY(-50%);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #f7f1ea;
+      border: 1px solid #e6d8ca;
+      color: #54473c;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary,
+    .bundle-button,
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 26px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--berry) 0%, var(--berry-deep) 100%);
+      color: #fff;
+      box-shadow: 0 20px 35px rgba(170, 0, 94, 0.22);
+    }
+
+    .button-secondary {
+      background: #fff;
+      color: #2f2520;
+      border: 1px solid #dfd3c6;
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover,
+    .bundle-button:hover,
+    .action-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .trust-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 20px;
+      color: #6a5b50;
+      font-size: 0.95rem;
+    }
+
+    .trust-line span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .trust-line span::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(45, 170, 63, 0.1);
+    }
+
+    .stack,
+    .tech-copy,
+    .points,
+    .bundle-list,
+    .copy-block,
+    .founder-copy,
+    .reviews-grid,
+    .rating-bars,
+    .review-actions {
+      display: grid;
+    }
+
+    .stack {
+      gap: 28px;
+      margin-top: 32px;
+    }
+
+    .image-card,
+    .visual-card,
+    .founder-photo {
+      overflow: hidden;
+      border-radius: 32px;
+      background: #f7f0e8;
+      box-shadow: var(--shadow);
+    }
+
+    .image-card img,
+    .visual-card img,
+    .founder-photo img,
+    .full-bleed img {
+      width: 100%;
+      height: auto;
+    }
+
+    .copy-block {
+      gap: 22px;
+      color: #35302c;
+      font-size: 1.08rem;
+    }
+
+    .copy-block p,
+    .tech-copy p,
+    .point p,
+    .founder-copy p,
+    .review-card p {
+      margin: 0;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(216, 201, 187, 0) 0%, rgba(216, 201, 187, 1) 12%, rgba(216, 201, 187, 1) 88%, rgba(216, 201, 187, 0) 100%);
+      margin: 18px 0 4px;
+    }
+
+    .accordion {
+      display: grid;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 0;
+      border: 0;
+      background: transparent;
+      color: #2a211a;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-header span {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .accordion-plus {
+      font-size: 2rem;
+      line-height: 1;
+      color: #3a2e28;
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-item.open .accordion-plus {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.25s ease;
+    }
+
+    .accordion-item.open .accordion-content {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-inner {
+      overflow: hidden;
+    }
+
+    .accordion-inner p {
+      margin: 0 0 18px;
+      color: #5a5149;
+    }
+
+    .accordion-inner ul {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+      color: #3f3630;
+    }
+
+    .accordion-inner li {
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .accordion-inner li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.76em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      transform: translateY(-50%);
+    }
+
+    .bundle h3,
+    .reviews h2 {
+      margin: 0 0 24px;
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .bundle-list {
+      gap: 18px;
+    }
+
+    .bundle-item {
+      display: grid;
+      grid-template-columns: 112px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid #e7dbce;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 14px 28px rgba(77, 49, 28, 0.05);
+    }
+
+    .bundle-thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 112px;
+      border-radius: 22px;
+      background: #fbf8f4;
+      overflow: hidden;
+    }
+
+    .bundle-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bundle-copy h4,
+    .review-card h3,
+    .point h3 {
+      margin: 0;
+    }
+
+    .bundle-prices {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 12px;
+      margin-top: 10px;
+    }
+
+    .bundle-old {
+      color: #7b6e62;
+      text-decoration: line-through;
+      font-size: 0.98rem;
+    }
+
+    .bundle-new {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 1.12rem;
+    }
+
+    .bundle-button {
+      min-width: 168px;
+      background: #fff;
+      color: #28211c;
+      border: 1px solid #ddd1c5;
+      box-shadow: none;
+    }
+
+    .intro {
+      width: var(--section-width);
+      margin: 90px auto 56px;
+      text-align: center;
+    }
+
+    .intro-heading {
+      font-size: clamp(2.8rem, 4.6vw, 4.8rem);
+      max-width: 18ch;
+      margin-inline: auto;
+    }
+
+    .full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
+    .tech-section {
+      width: var(--section-width);
+      margin: 86px auto 0;
+      display: grid;
+      gap: 42px;
+    }
+
+    .tech-row {
+      display: grid;
+      grid-template-columns: minmax(420px, 0.88fr) minmax(420px, 1fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .tech-row.reverse {
+      grid-template-columns: minmax(420px, 1fr) minmax(380px, 0.88fr);
+    }
+
+    .tech-copy {
+      gap: 24px;
+    }
+
+    .tech-copy h2 {
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      max-width: 12ch;
+    }
+
+    .tech-copy p,
+    .founder-copy p {
+      font-size: 1.08rem;
+      color: #413933;
+    }
+
+    .points {
+      gap: 20px;
+    }
+
+    .point {
+      display: grid;
+      gap: 10px;
+      padding: 18px 22px;
+      border-radius: 24px;
+      background: #fcfaf7;
+      border: 1px solid #ede3d8;
+      box-shadow: 0 14px 28px rgba(85, 54, 35, 0.05);
+    }
+
+    .founder {
+      width: var(--section-width);
+      margin: 100px auto 0;
+      display: grid;
+      grid-template-columns: minmax(520px, 1.08fr) minmax(360px, 0.92fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .reviews {
+      width: var(--section-width);
+      margin: 92px auto 0;
+      padding-bottom: 96px;
+    }
+
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .reviews-sort {
+      color: #4f5058;
+      font-weight: 700;
+    }
+
+    .reviews-summary {
+      display: grid;
+      grid-template-columns: 260px minmax(360px, 1fr) auto;
+      gap: 26px;
+      align-items: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rating-total {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .rating-total strong {
+      font-size: clamp(3rem, 6vw, 4.4rem);
+      line-height: 0.86;
+    }
+
+    .rating-bars {
+      gap: 12px;
+    }
+
+    .rating-bar {
+      display: grid;
+      grid-template-columns: 28px 1fr 30px;
+      gap: 14px;
+      align-items: center;
+      font-weight: 700;
+      color: #50545f;
+    }
+
+    .bar-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: #eceef1;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: #3f8f3f;
+    }
+
+    .review-actions {
+      gap: 16px;
+    }
+
+    .action-button {
+      min-width: 254px;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: none;
+    }
+
+    .reviews-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .review-card {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid #e7e4df;
+      background: #fff;
+      box-shadow: 0 16px 30px rgba(60, 39, 22, 0.04);
+    }
+
+    .review-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .review-avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #efefef;
+      color: #272727;
+      font-size: 1.8rem;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+    }
+
+    .review-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e1d21;
+    }
+
+    .review-stars {
+      color: #f5be3b;
+      letter-spacing: 0.08em;
+      margin-top: 8px;
+      font-size: 1.05rem;
+    }
+
+    .review-photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 14px 24px rgba(52, 31, 18, 0.14);
+    }
+
+    .footer-note {
+      width: var(--section-width);
+      margin: 0 auto 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: #6b655e;
+      font-size: 0.94rem;
+      text-align: center;
+    }
+
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1400px) {
+      .product-shell,
+      .founder,
+      .tech-row,
+      .tech-row.reverse {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .product-media {
+        position: static;
+      }
+
+      .gallery-panel {
+        min-height: auto;
+      }
+
+      .bundle-item {
+        grid-template-columns: 112px 1fr;
+      }
+
+      .bundle-button {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .topbar {
+        gap: 16px;
+        padding: 16px 18px;
+        flex-wrap: wrap;
+      }
+
+      .topbar-urgency {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .reviews-summary {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .review-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      :root {
+        --page-width: min(100%, calc(100% - 20px));
+        --section-width: min(100%, calc(100% - 20px));
+      }
+
+      main {
+        padding-top: 12px;
+      }
+
+      .topbar {
+        justify-content: flex-start;
+        gap: 14px;
+      }
+
+      .topbar-urgency {
+        justify-content: flex-start;
+        border-radius: 28px;
+      }
+
+      .urgency-countdown {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 10px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .urgency-live {
+        font-size: 0.9rem;
+      }
+
+      .gallery-panel {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 18px;
+      }
+
+      .gallery-thumbs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .thumb {
+        min-width: 74px;
+      }
+
+      .product-copy h1 {
+        max-width: none;
+      }
+
+      .hero-actions,
+      .trust-line {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button-primary,
+      .button-secondary,
+      .action-button {
+        width: 100%;
+      }
+
+      .bundle-item,
+      .reviews-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .bundle-thumb {
+        min-height: 180px;
+      }
+
+      .bundle-button {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .review-actions {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+
+      .live-dot {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-button" type="button" aria-label="Abrir menu">
+      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" fill="none">
+        <path d="M6 9.5H26" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+        <path d="M6 16H26" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+        <path d="M6 22.5H26" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+      </svg>
+    </button>
+
+    <a href="#topo" class="brand" aria-label="Cabelos de Rainha">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
+          <path d="M9 46H55L52 54H12L9 46Z" fill="currentColor"></path>
+          <path d="M12 46L18 19L31 33L43 12L52 28L55 46" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"></path>
+          <circle cx="18" cy="18" r="4" fill="currentColor"></circle>
+          <circle cx="43" cy="11" r="4" fill="currentColor"></circle>
+          <circle cx="52" cy="27" r="4" fill="currentColor"></circle>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <small>Cabelos de</small>
+        <strong>Rainha</strong>
+      </span>
+    </a>
+
+    <div class="topbar-urgency">
+      <div class="urgency-countdown">
+        <span class="urgency-tag">Oferta relampago</span>
+        <strong class="urgency-time" id="countdownTimer">15:00</strong>
+      </div>
+      <div class="urgency-live">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span><strong id="liveBuyers">23</strong> pessoas comprando neste exato momento</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="product-shell" id="topo">
+      <aside class="product-media" data-reveal style="--delay: 0.04s;">
+        <div class="gallery-panel">
+          <div class="gallery-thumbs">
+            <button class="thumb active" type="button" data-image="assets/images/hero-kit.png" data-alt="Kit Crescimento e Fortalecimento Cabelos de Rainha">
+              <img src="assets/images/hero-kit.png" alt="Kit principal">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/kit-close.png" data-alt="Kit completo com mascara aberta">
+              <img src="assets/images/kit-close.png" alt="Kit em detalhe">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/use-grid.png" data-alt="Aplicacao dos produtos Cabelos de Rainha">
+              <img src="assets/images/use-grid.png" alt="Aplicacao dos produtos">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/elixir-water.webp" data-alt="Elixir da Rainha sobre fundo aquoso">
+              <img src="assets/images/elixir-water.webp" alt="Elixir da Rainha">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/model-duo.png" data-alt="Modelo apresentando shampoo e condicionador">
+              <img src="assets/images/model-duo.png" alt="Modelo com shampoo e condicionador">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/model-elixir.webp" data-alt="Modelo segurando o Elixir da Rainha">
+              <img src="assets/images/model-elixir.webp" alt="Modelo com elixir">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/model-mask.webp" data-alt="Modelo segurando a mascara hidronutritiva">
+              <img src="assets/images/model-mask.webp" alt="Modelo com mascara">
+            </button>
+            <button class="thumb" type="button" data-image="assets/images/mask-texture.webp" data-alt="Textura da mascara hidronutritiva">
+              <img src="assets/images/mask-texture.webp" alt="Textura da mascara">
+            </button>
+          </div>
+
+          <div class="gallery-stage">
+            <img id="mainImage" src="assets/images/hero-kit.png" alt="Kit Crescimento e Fortalecimento Cabelos de Rainha">
+          </div>
+        </div>
+      </aside>
+
+      <div class="product-copy">
+        <p class="eyebrow" data-reveal style="--delay: 0.08s;">Linha de Crescimento Cabelos de Rainha</p>
+        <h1 data-reveal style="--delay: 0.12s;">Kit Crescimento e Fortalecimento</h1>
+        <p class="lede" data-reveal style="--delay: 0.16s;">
+          Kit de tratamento de alta performance para crescimento e fortalecimento dos fios. A rotina combina shampoo, condicionador, tÃ´nico capilar e mÃ¡scara para entregar limpeza, ativaÃ§Ã£o da raiz, nutriÃ§Ã£o e reparaÃ§Ã£o em casa.
+        </p>
+
+        <div class="rating-row" data-reveal style="--delay: 0.2s;">
+          <span class="stars" aria-label="5 de 5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>5,0 com base em 62 avaliaÃ§Ãµes</span>
+          <span class="rating-dot" aria-hidden="true"></span>
+          <span>Grau 2 na ANVISA</span>
+        </div>
+
+        <div class="price-card" data-reveal style="--delay: 0.24s;">
+          <div class="price-row">
+            <span class="old-price">R$ 625,00</span>
+            <span class="current-price">R$ 287,78</span>
+            <span class="discount-pill">54% OFF</span>
+          </div>
+          <div class="price-meta">
+            <span>ou 12x de R$ 28,62</span>
+            <span>frete rapido para todo o Brasil</span>
+            <span>resultado de salao em casa</span>
+          </div>
+        </div>
+
+        <ul class="kit-list" data-reveal style="--delay: 0.28s;">
+          <li>1 Shampoo Crescimento e Fortalecimento - 280 ml</li>
+          <li>1 Condicionador Crescimento e Fortalecimento - 280 ml</li>
+          <li>1 TÃ´nico Capilar Elixir da Rainha - 200 ml</li>
+          <li>1 MÃ¡scara Hidronutritiva - 250 g</li>
+        </ul>
+
+        <div class="chips" data-reveal style="--delay: 0.32s;">
+          <span class="chip">estimula o crescimento saudavel</span>
+          <span class="chip">fortalece desde a raiz</span>
+          <span class="chip">hidrata e encorpa os fios</span>
+          <span class="chip">uso completo em casa</span>
+        </div>
+
+        <div class="hero-actions" data-reveal style="--delay: 0.36s;">
+          <a class="button-primary" href="https://pay.risepay.com.br/Pay/c2674711f5b8498fba0bf252e32ad5db" data-checkout-link="true">Comprar agora</a>
+          <a class="button-secondary" href="#avaliacoes">Ver avaliacoes</a>
+        </div>
+
+        <div class="trust-line" data-reveal style="--delay: 0.4s;">
+          <span>ativos naturais e tecnologia exclusiva</span>
+          <span>resultado visivel desde a primeira aplicacao</span>
+          <span>rotina completa para crescimento e fortalecimento</span>
+        </div>
+
+        <div class="stack">
+          <div class="image-card" data-reveal style="--delay: 0.12s;">
+            <img src="assets/images/crop-cronograma.png" alt="Projeto Cabelao 2026 - cronograma para crescimento capilar">
+          </div>
+
+          <div class="copy-block" data-reveal style="--delay: 0.16s;">
+            <p>Kit de tratamento de alta performance para crescimento e fortalecimento da Cabelos de Rainha.</p>
+            <p>Para quem busca estimular o crescimento saudavel, fortalecer e fazer hidratacao intensa no cabelo.</p>
+            <p>O shampoo e condicionador cuidam da saude do couro cabeludo e fortalecem os fios. O tonico atua diretamente na raiz para ativar o crescimento e reduzir a queda. Kit com <strong>GRAU 2</strong> na ANVISA.</p>
+            <p>Produtos que proporcionam resultado de salao em casa.</p>
+          </div>
+
+          <div class="image-card" data-reveal style="--delay: 0.2s;">
+            <img src="assets/images/crop-folliculo.png" alt="Beneficios do tratamento para o foliculo capilar">
+          </div>
+
+          <div class="copy-block" data-reveal style="--delay: 0.24s;">
+            <p>A formula age em varias frentes ao mesmo tempo: favorece o crescimento de novos fios, estimula a circulacao no couro cabeludo, nutre as celulas capilares e fortalece os foliculos existentes.</p>
+            <p>Com uso continuo, a rotina ajuda a deixar o cabelo mais denso, resistente e encorpado, reduzindo a quebra e apoiando o crescimento forte desde a raiz.</p>
+          </div>
+
+          <div class="image-card" data-reveal style="--delay: 0.28s;">
+            <img src="assets/images/crop-motivos.png" alt="6 motivos para usar o kit de crescimento">
+          </div>
+
+          <div class="section-divider" data-reveal style="--delay: 0.08s;"></div>
+
+          <div class="accordion" data-reveal style="--delay: 0.12s;">
+            <div class="accordion-item open">
+              <button class="accordion-header" type="button" aria-expanded="true">
+                <span>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 8L8.5 4L12 8L15.5 4L20 8L18 18H6L4 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+                  </svg>
+                  Como usar
+                </span>
+                <span class="accordion-plus">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-inner">
+                  <p>A rotina foi pensada para criar um cronograma simples e eficiente para o crescimento saudavel.</p>
+                  <ul>
+                    <li>Shampoo e condicionador em todas as lavagens nas primeiras semanas.</li>
+                    <li>Tonico capilar na raiz com massagem, sem enxague, uso diario.</li>
+                    <li>MÃ¡scara hidronutritiva de 1 a 2 vezes por semana apos o shampoo.</li>
+                    <li>Persistencia e constancia para resultados mais fortes ao longo das semanas.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" type="button" aria-expanded="false">
+                <span>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3L14.6 8.4L20.5 9.1L16.2 13.1L17.3 18.9L12 16L6.7 18.9L7.8 13.1L3.5 9.1L9.4 8.4L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+                  </svg>
+                  Composicao
+                </span>
+                <span class="accordion-plus">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-inner">
+                  <p>A linha combina ativos naturais e tecnologia exclusiva para atuar no couro cabeludo e no comprimento.</p>
+                  <ul>
+                    <li>Baicapil, cafe verde e alecrim para ativacao da microcirculacao.</li>
+                    <li>Biotina, bardana, babosa e extratos vegetais para nutricao folicular.</li>
+                    <li>Ativos reparadores e hidratantes para brilho, maciez e menos quebra.</li>
+                    <li>Uso conjunto para potencializar crescimento, resistencia e encorpamento.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2 class="intro-heading" data-reveal>ConheÃ§a mais sobre todos os produtos da Linha de Crescimento e fortalecimento Cabelos de Rainha:</h2>
+    </section>
+
+    <section class="full-bleed" data-reveal>
+      <img src="assets/images/crop-5d.png" alt="Tecnologia do estimulo capilar inteligente 5D">
+    </section>
+
+    <section class="tech-section">
+      <div class="tech-row">
+        <div class="visual-card" data-reveal style="--delay: 0.08s;">
+          <img src="assets/images/crop-anagena.png" alt="Explicacao sobre a fase anagena do cabelo">
+        </div>
+
+        <div class="tech-copy" data-reveal style="--delay: 0.12s;">
+          <div class="section-heading">
+            <p class="eyebrow">Kit Cabelos de Rainha</p>
+            <h2>Como funciona o estÃ­mulo Capilar Inteligente 5D&trade;?</h2>
+          </div>
+
+          <p>Atua em 5 dimensoes fundamentais do ciclo capilar para estimular o crescimento saudavel, encorpar fios e reduzir a queda desde a raiz.</p>
+
+          <div class="points">
+            <article class="point">
+              <h3>1. Limpeza Inteligente do Couro Cabeludo</h3>
+              <p>O shampoo contem ativos como alecrim, jaborandi, arnica e capsicum, que limpam profundamente, mas sem agredir. Ajuda a controlar a oleosidade, tratar o couro cabeludo e desobstruir os poros.</p>
+            </article>
+
+            <article class="point">
+              <h3>2. AtivaÃ§Ã£o da MicrocirculaÃ§Ã£o</h3>
+              <p>Com Baicapil&trade;, cafe verde e alecrim, estimula o fluxo sanguineo local e melhora o fornecimento de nutrientes aos foliculos.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-row reverse">
+        <div class="tech-copy" data-reveal style="--delay: 0.1s;">
+          <div class="points">
+            <article class="point">
+              <h3>3. NutriÃ§Ã£o Folicular Direta</h3>
+              <p>Biotina, bardana, extrato de uva e babosa nutrem o bulbo capilar com vitaminas, minerais e aminoacidos essenciais para um crescimento mais forte.</p>
+            </article>
+
+            <article class="point">
+              <h3>4. Fortalecimento dos Fios Existentes</h3>
+              <p>O condicionador e a mÃ¡scara ajudam a reduzir quebra, ressecamento e afinamento, deixando o cabelo mais denso, resistente e encorpado.</p>
+            </article>
+
+            <article class="point">
+              <h3>5. Prolonga a Fase AnÃ¡gena</h3>
+              <p>Ao estimular a raiz, nutrir o foliculo e manter o couro cabeludo equilibrado, o kit ajuda o fio a permanecer por mais tempo na fase de crescimento.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="visual-card" data-reveal style="--delay: 0.14s;">
+          <img src="assets/images/crop-folliculo.png" alt="Infografico sobre os beneficios no foliculo capilar">
+        </div>
+      </div>
+    </section>
+
+    <section class="founder">
+      <div class="founder-photo" data-reveal style="--delay: 0.08s;">
+        <img src="assets/images/crop-fundadora.png" alt="Fundadora da Cabelos de Rainha">
+      </div>
+
+      <div class="founder-copy" data-reveal style="--delay: 0.12s;">
+        <div class="section-heading">
+          <p class="eyebrow">A marca por trÃ¡s da formula</p>
+          <h2>Julia Doorman e o propÃ³sito da Cabelos de Rainha</h2>
+        </div>
+
+        <p>Julia Doorman, terapeuta capilar e cosmetologista, fundadora da Cabelos de Rainha, dedicou mais de 10 anos estudando a saude dos fios, testando formulas e ajudando mulheres a recuperarem seus cabelos.</p>
+        <p>Criou a marca <strong>Cabelos de Rainha</strong> com um proposito claro: desenvolver produtos de alta performance, com ativos potentes e tecnologia de ponta, que realmente entreguem resultados e transformem a autoestima de quem usa.</p>
+        <p>Cada formula e pensada com carinho, cuidado e ciencia para que voce se sinta confiante, poderosa e com um cabelo digno de rainha todos os dias.</p>
+      </div>
+    </section>
+
+    <section class="reviews" id="avaliacoes">
+      <div class="reviews-header">
+        <h2 data-reveal>AvaliaÃ§Ãµes de Clientes</h2>
+        <div class="reviews-sort" data-reveal style="--delay: 0.08s;">ClassificaÃ§Ã£o mais alta</div>
+      </div>
+
+      <div class="reviews-summary" data-reveal style="--delay: 0.12s;">
+        <div class="rating-total">
+          <strong>5</strong>
+          <div class="stars" aria-label="5 de 5 estrelas">&#9733;</div>
+          <p>Com base em 62 avaliaÃ§Ãµes</p>
+        </div>
+
+        <div class="rating-bars">
+          <div class="rating-bar">
+            <span>5</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 97%;"></div></div>
+            <span>60</span>
+          </div>
+          <div class="rating-bar">
+            <span>4</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 4%;"></div></div>
+            <span>1</span>
+          </div>
+          <div class="rating-bar">
+            <span>3</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 3%;"></div></div>
+            <span>1</span>
+          </div>
+          <div class="rating-bar">
+            <span>2</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+            <span>0</span>
+          </div>
+          <div class="rating-bar">
+            <span>1</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+            <span>0</span>
+          </div>
+        </div>
+
+        <div class="review-actions">
+          <button class="action-button" type="button">Avalie</button>
+          <button class="action-button" type="button">FaÃ§a uma pergunta</button>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card" data-reveal style="--delay: 0.02s;">
+          <div class="review-top">
+            <span class="review-avatar">D</span>
+            <div>
+              <div class="review-name">Duarte</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>IncrÃ­vel</h3>
+          <p>Incrivel, desde o processo de entrega ate a qualidade do produto. Vi a diferenca desde a minha primeira semana. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.04s;">
+          <div class="review-top">
+            <span class="review-avatar">N</span>
+            <div>
+              <div class="review-name">Nayara da Silva Lemos</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Boa compra</h3>
+          <p>Recebi rapido os produtos, embora tenha vindo vazando um pouquinho, a caixa estava amassada. Comecei a usar e ja notei melhor textura. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.06s;">
+          <div class="review-top">
+            <span class="review-avatar">A</span>
+            <div>
+              <div class="review-name">Ana Cristina da Costa Holanda Silva</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Ã“timo produto</h3>
+          <p>Otimo produto. O tonico e maravilhoso, observei diferenca no primeiro uso.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.08s;">
+          <div class="review-top">
+            <span class="review-avatar">E</span>
+            <div>
+              <div class="review-name">Eliana Bispo dos Santos Silva</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Peidutos maravilhosos senti diferencia desde a primeira lavagem</h3>
+          <p>Peidutos maravilhosos senti diferencia desde a primeira lavagem. Resultado cabelos macios e brilhantes. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.1s;">
+          <div class="review-top">
+            <span class="review-avatar">J</span>
+            <div>
+              <div class="review-name">JanÃ¡ria Soares de Macedo</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Comecei a usar e na primeira lavagem meu cabelo jÃ¡ ficou maravilhoso</h3>
+          <p>Comecei a usar e na primeira lavagem meu cabelo ja ficou maravilhoso, encorpado e cheio de vida.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.12s;">
+          <div class="review-top">
+            <span class="review-avatar">M</span>
+            <div>
+              <div class="review-name">Maria Benigna Dos Santos Silva</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Maravilhoso esse kit cabelos de rainha</h3>
+          <p>Maravilhoso esse kit cabelos de rainha, com poucos dias de uso ja vi reducao na queda capilar. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.14s;">
+          <div class="review-top">
+            <span class="review-avatar">V</span>
+            <div>
+              <div class="review-name">Vera Lucia Ramos</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Simplesmente apaixonada</h3>
+          <p>Simplesmente apaixonada pelo resultado e pelo toque do cabelo apos o uso.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.16s;">
+          <div class="review-top">
+            <span class="review-avatar">F</span>
+            <div>
+              <div class="review-name">Francisca Sousa</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Produtos</h3>
+          <p>Produtos maravilhosos. Nao fico mais sem essa linha.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.18s;">
+          <div class="review-top">
+            <span class="review-avatar">F</span>
+            <div>
+              <div class="review-name">Fabiana Cristina Vera dos Santos</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Produtos</h3>
+          <p>Produtos maravilhosos!!!</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.2s;">
+          <div class="review-top">
+            <span class="review-avatar">J</span>
+            <div>
+              <div class="review-name">Juliana</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Esse kit Ã© maravilhoso</h3>
+          <p>Esse kit e maravilhoso, a mascara deixa o cabelo super hidratado, amei!</p>
+          <img class="review-photo" src="assets/images/kit-close.png" alt="Foto enviada pela cliente Juliana">
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.22s;">
+          <div class="review-top">
+            <span class="review-avatar">M</span>
+            <div>
+              <div class="review-name">Marry ellen silva de jesus</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Chegou tudo certinho</h3>
+          <p>Chegou tudo certinho, nao e a primeira vez que compro. Os produtos sao maravilhosos e valem muito a pena. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.24s;">
+          <div class="review-top">
+            <span class="review-avatar">E</span>
+            <div>
+              <div class="review-name">Elisama</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Maravilhoso</h3>
+          <p>Maravilhoso, os itens eu ja conhecia, mas o tonico nunca tinha utilizado. O tonico e excelente. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.26s;">
+          <div class="review-top">
+            <span class="review-avatar">S</span>
+            <div>
+              <div class="review-name">Suzana Mendes Rosa</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Maravilhoso o kit que comprei estou amando</h3>
+          <p>Maravilhoso o kit que comprei, estou amando e vendo o cabelo responder super bem.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.28s;">
+          <div class="review-top">
+            <span class="review-avatar">G</span>
+            <div>
+              <div class="review-name">Gilceli Alves Lima Reis</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Produto maravilhosos</h3>
+          <p>Produto maravilhosos, nao vivo mais sem.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.3s;">
+          <div class="review-top">
+            <span class="review-avatar">E</span>
+            <div>
+              <div class="review-name">Edina do Carmo faria dos santos</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Estou usando a pouco tempo mais o resultado jÃ¡</h3>
+          <p>Estou usando a pouco tempo, mas o resultado ja esta dando efeito.</p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.32s;">
+          <div class="review-top">
+            <span class="review-avatar">L</span>
+            <div>
+              <div class="review-name">Luana Dos Santos Biscaia</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Sou fÃ£ da Julia</h3>
+          <p>Sou fa da Julia e comprei os produtos porque acredito no resultado real que ela apresenta. <b>Leia mais</b></p>
+        </article>
+
+        <article class="review-card" data-reveal style="--delay: 0.34s;">
+          <div class="review-top">
+            <span class="review-avatar">T</span>
+            <div>
+              <div class="review-name">Tatiane Cristina Bressani</div>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <h3>Maravilha</h3>
+          <p>E maravilhoso os produtos. Amei.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer-note">Landing page desenvolvida com base nas referencias visuais enviadas, mantendo a mesma linguagem de vitrine, narrativa e prova social.</div>
+  </main>
+
+  <script>
+    const galleryButtons = document.querySelectorAll(".thumb");
+    const mainImage = document.getElementById("mainImage");
+    const countdownTimer = document.getElementById("countdownTimer");
+    const liveBuyers = document.getElementById("liveBuyers");
+    const checkoutUrl = "https://pay.risepay.com.br/Pay/c2674711f5b8498fba0bf252e32ad5db";
+
+    galleryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        mainImage.src = button.dataset.image;
+        mainImage.alt = button.dataset.alt;
+
+        galleryButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".accordion-item").forEach((item) => {
+      const trigger = item.querySelector(".accordion-header");
+
+      trigger.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+
+        document.querySelectorAll(".accordion-item").forEach((otherItem) => {
+          otherItem.classList.remove("open");
+          otherItem.querySelector(".accordion-header").setAttribute("aria-expanded", "false");
+        });
+
+        if (!isOpen) {
+          item.classList.add("open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-checkout-link='true']").forEach((link) => {
+      link.setAttribute("href", checkoutUrl);
+    });
+
+    if (countdownTimer) {
+      const countdownDuration = 15 * 60;
+      let timeLeft = countdownDuration;
+
+      const renderCountdown = () => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        countdownTimer.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      };
+
+      renderCountdown();
+
+      window.setInterval(() => {
+        timeLeft = timeLeft > 1 ? timeLeft - 1 : countdownDuration;
+        renderCountdown();
+      }, 1000);
+    }
+
+    if (liveBuyers) {
+      const startingBuyers = 23;
+      const maxBuyers = 200;
+      let buyersNow = startingBuyers;
+
+      liveBuyers.textContent = String(buyersNow);
+
+      window.setInterval(() => {
+        if (buyersNow < maxBuyers) {
+          buyersNow += 1;
+          liveBuyers.textContent = String(buyersNow);
+        }
+      }, 20000);
+    }
+
+  </script>
+</body>
+</html>
